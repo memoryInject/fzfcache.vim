@@ -8,6 +8,7 @@ When running vim on project directory root ( nvim . ) this plugin will create
 This is a complementary plugin for session.vim: https://github.com/memoryInject/session.vim 
 
 **Note: To use this plugin make sure to install   
+- tree: https://www.tecmint.com/linux-tree-command-examples/
 - fzf for shell
 - fzf vim: https://github.com/junegunn/fzf.vim
 - AsyncRun: https://github.com/skywind3000/asyncrun.vim
