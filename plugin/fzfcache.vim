@@ -1,21 +1,7 @@
 " FZF Cache Setup Start!
 let s:this_file_dir = expand('<sfile>:p:h')
 
-" Test if the tree command is available in bash
-function! s:tree_command_test()
-    let s:errorfile = s:this_file_dir . '/temp.error'
-    silent exe '!command -v tree >/dev/null 2>&1 || { echo >&2 "fzfcache.vim: tree command is not found." >' . s:errorfile . '; exit 1; }'
-    if filereadable(s:errorfile)
-        let s:errorlines = readfile(s:errorfile)
-        for line in s:errorlines
-            echoerr line 
-        endfor
-        silent exe '!rm ' . s:errorfile
-    endif
-endfunction
-
 function! s:fzf_cache()
-    :call s:tree_command_test()
     exe 'AsyncRun bash ' . s:this_file_dir . '/fzfcache.sh'
     echo 'fzf caching...'
 endfunction
