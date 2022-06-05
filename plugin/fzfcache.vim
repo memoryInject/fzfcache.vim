@@ -6,6 +6,16 @@ function! s:fzf_cache()
     echo 'fzf caching...'
 endfunction
 
+function! s:fzf_watchdog_cache()
+    exe 'silent !bash ' . s:this_file_dir . '/watchdog.sh > /tmp/output 2>&1 &'
+    echo 'Activate watchdog for fzf cache...'
+endfunction
+
+function! s:fzf_kill_watchdog()
+    exe 'AsyncRun bash ' . s:this_file_dir . '/kill_watchdog.sh'
+    echo 'Kill watchdog for fzf cache...'
+endfunction
+
 " Only cache when open nvim with .
 " Check out session.vim plugin for more detailed info
 function! s:session_load()
@@ -58,3 +68,5 @@ au VimEnter * nested :call s:session_load()
 
 command! Fzfcache call s:fzf_cache()
 command! Fzfopencache call s:fzf_open_cache()
+command! Fzfwatchdog call s:fzf_watchdog_cache()
+command! Fzfkillwatchdog call s:fzf_kill_watchdog()

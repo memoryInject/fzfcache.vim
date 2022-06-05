@@ -1,0 +1,4 @@
+experimentalFeatures:
+  - name: watchdog
+    description: watch file changes on project and cache fzf
+    access: to run this feature run `:Fzfwatchdog` to kill the watch dog run `:Fzfkillwatchdog` there is no other automatic way to kill running watchdog at the movement 
